@@ -233,6 +233,7 @@ const VsBoard = () => {
         productSelected,
         productLetter: products[0].id === productSelected ? "A" : "B",
       });
+    setProductReview("");
   };
 
   useEffect(() => {
@@ -240,10 +241,17 @@ const VsBoard = () => {
     loadVotesFromFB();
   }, []);
 
+  if (!products) {
+    return (
+      <NotAvaibleYetStyle>
+        <p>Loading ...</p>
+      </NotAvaibleYetStyle>
+    );
+  }
   if (products?.length < 2) {
     return (
       <NotAvaibleYetStyle>
-        <p>There is not a current poll. Please wait until is avaible</p>
+        <p>There is not a current poll. Please wait until is available</p>
       </NotAvaibleYetStyle>
     );
   }
@@ -280,7 +288,12 @@ const VsBoard = () => {
         </div>
         <div className="vote-section">
           <form onSubmit={handleSubmit}>
-            <input placeholder="Write a comment" type="text" onChange={handleOnChange} />
+            <input
+              placeholder="Write a comment"
+              type="text"
+              value={productReview}
+              onChange={handleOnChange}
+            />
             <button className="button" type="submit">
               Vote
             </button>

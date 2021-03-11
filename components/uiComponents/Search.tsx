@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import styled from "styled-components";
 
 const SearchStyle = styled.div`
@@ -51,9 +51,14 @@ const SearchStyle = styled.div`
 
 const Search = ({setKeywords}) => {
   const [search, setSearch] = useState("");
+  const inputRef = useRef(null);
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
+
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -65,6 +70,7 @@ const Search = ({setKeywords}) => {
       <form onSubmit={handleSubmit}>
         <div className="form__group field">
           <input
+            ref={inputRef}
             required
             autoComplete="off"
             className="form__field"
@@ -74,7 +80,7 @@ const Search = ({setKeywords}) => {
           />
           {/* eslint-disable */}
           <label htmlFor="search" className="form__label">
-            Search for products...
+            Search for products and Press Enter 
           </label>
         </div>
       </form>

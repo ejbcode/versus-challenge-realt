@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const ProductsStyle = styled.div`
   overflow: hidden;
+  z-index: 2;
   border-radius: 0.7rem;
   height: 120px;
   border: 2px solid ${(props) => props.border || "var(--color3)"};

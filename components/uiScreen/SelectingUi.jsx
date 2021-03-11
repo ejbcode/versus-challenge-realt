@@ -5,7 +5,6 @@ import router from "next/router";
 
 import Search from "../uiComponents/Search";
 import Products from "../Products";
-import {useAuth} from "../../src/authProvider";
 import {db} from "../../src/firebaseConfig";
 
 const SelectingUiStyle = styled.section`
@@ -16,15 +15,28 @@ const SelectingUiStyle = styled.section`
 
   .productA {
     position: absolute;
-    top: 50%;
+    z-index: 0;
+    top: 20%;
     left: 0;
     width: 200px;
+    img {
+      margin-top: 2rem;
+      opacity: 0.5;
+      width: 150px;
+    }
   }
   .productB {
     position: absolute;
+    z-index: 0;
     right: 0;
-    top: 50%;
+    top: 20%;
+
     width: 200px;
+    img {
+      margin-top: 2rem;
+      opacity: 0.5;
+      width: 150px;
+    }
   }
 `;
 
@@ -176,18 +188,35 @@ export default function SelectingUi() {
         </ListOfProductsStyle>
       )}
 
-      <ButtonStyle type="submit" onClick={handleClickReset}>
-        Reset Poll
-      </ButtonStyle>
-      <ButtonStyle type="submit" onClick={handleClick}>
-        Start a Poll
-      </ButtonStyle>
-      <div className="productA">
-        <h3>{productA?.title}</h3>
-      </div>
-      <div className="productB">
-        <h3>{productB?.title}</h3>
-      </div>
+      {listOfProducts && (
+        <>
+          <ButtonStyle type="submit" onClick={handleClickReset}>
+            Reset Poll
+          </ButtonStyle>
+          <ButtonStyle type="submit" onClick={handleClick}>
+            Start a Poll
+          </ButtonStyle>
+        </>
+      )}
+      {productA ? (
+        <div className="productA">
+          <h2>Team A</h2>
+          <h4>{productA?.title}</h4>
+          <img alt={productA?.title} src={productA?.thumbnail} />
+        </div>
+      ) : (
+        ""
+      )}
+
+      {productB ? (
+        <div className="productB">
+          <h2>Team B</h2>
+          <h4>{productB?.title}</h4>
+          <img alt={productB?.title} src={productB?.thumbnail} />
+        </div>
+      ) : (
+        ""
+      )}
     </SelectingUiStyle>
   );
 }

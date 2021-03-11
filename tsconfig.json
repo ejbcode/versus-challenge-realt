@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "components/uiScreen/SelectingUi.jsx", "components/VsBoard.jsx", "components/Products.jsx", "components/ProductItem.jsx", "pages/selecting.jsx"  ],
   "exclude": [
     "node_modules"
   ]
