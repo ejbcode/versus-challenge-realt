@@ -1,5 +1,10 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@context/*":["src/context/*"],
+      "@components/*":["src/components/*"]
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -17,13 +22,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "checkJs": false
+    "checkJs": false,
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/uiScreen/SelectingUi.jsx", "components/VsBoard.jsx", "components/Products.jsx", "components/ProductItem.jsx", "pages/selecting.jsx"  ],
+, "components/uiScreen/SelectingUi.jsx", "components/VsBoard.jsx", "components/Products.jsx", "components/ProductItem.jsx", "pages/selecting.jsx", "src/context/authProvider.js"  ],
   "exclude": [
     "node_modules"
   ]

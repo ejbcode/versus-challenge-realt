@@ -1,11 +1,10 @@
 import Head from "next/head";
-import React from "react";
 
-import VsBoard from "../components/VsBoard";
-import {useAuth} from "../src/authProvider";
+import VsBoard from "../src/components/screens/VsBoard/Index";
+import {useFirebase} from "../src/context/firebaseProvider";
 
 export default function Home() {
-  const {user, loading, logout} = useAuth();
+  const {loading} = useFirebase();
 
   if (loading) return <p>loading</p>;
 

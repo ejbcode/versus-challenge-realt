@@ -1,31 +1,43 @@
-# RealTrends challenge
-Se debe crear una aplicación de votación realtime.
+<img src="./public/logo.svg" height="80" alt="realtrends logo"/>
 
-## API
-* Debe exponer un servidor de websocket al que se pueda subscribir.
-* Debe emitir eventos cuando haya votos nuevos.
+# Real Trends challenge
+This is the soluction to the challenge made by Real Trends. Make a real time poll, consuming the API of ML. The project is made with nextjs, firebase auth, and firestore for the backend. 
 
-## Cliente
-* Debe haber al menos dos productos sobre los cuales se pueda votar.
-* Se debe mostrar un indicador del porcentaje de votos de cada producto.
-* Se debe poder ver quienes fueron los votantes y sus respectivas valoraciónes.
-* Cada usuario puede votar una vez, si vota más de una, el voto se transfiere.
+You can check out [the specs for the projects here](https://github.com/goncy/realtrends-challenge) 
 
-## Definiciones técnicas
-* El código de la aplicación debe estar subida a un repositorio de público acceso.
+# Setup
+This application uses Firebase services. Configuration required to connect to Firebase is defined in the .env file in the root of this repository.
 
-## Puntos extra
-* El usuario puede seleccionar los productos desde el cliente viendo un modal con productos de Mercado Libre.
-* La votación se puede pausar, reanudar y reiniciar desde el cliente.
+Before building or running the app, you must add your own Firebase project configuration.
+
+# Installation
+
+```bash
+npm install
+
+npm run dev
+
+```
 
 
-# Steps
+# Live Demo
+Try a live version at https://versus-challenge-realt.vercel.app/
+
+# proposed UI
+Two page, the first to vote for a product, the second to choose the products for the poll
+<center><img src="./public/index.png" height="400" alt="ui index" /></center>
+
+<center><img src="./public/selecting.png" height="400" alt="ui selecting products"/></center>
+
+
+
+# Creative process 📋
 -   Install nextjs
 -   create tsconfig to enable typescript
 -   instal ' npm install --save-dev typescript @types/react @types/node'
 -   npm run dev to autocreate the tsconfig
 -   install linter of the projects
--   instal firebase
+-   install firebase
 -   create the project in firebase and import the config in a .env file
 -   create the firebaseConfig
 -   Select the login option in react-firebaseui (Google and Github seen good idea)
@@ -44,12 +56,12 @@ Se debe crear una aplicación de votación realtime.
 -   **Turn off the strict mode of typescript for a while.**
 -   boilerplate ready.
 
-## Brainstorm
--   We need a page for the poll, and maybe other page for select product from Meli.
+## Brainstorm 🤯
+-   We need a page for the poll, and maybe other page for select products from Meli.
 -   The select page should be access only by admin to avoid multiples users creating a poll.
 -   Make the poll page like a Battle (mortal kombat), we need two products, a life score, a timer, input for the review, select and option, the results above. We need the name of the voter. THE USER NEED TO BE LOGIN TO VOTE.
 -  From the user Login we can use the name, and the profilePic?
--   For the selecting page, we can search a keywords and select two products for the poll. Name, picture, permalink? price? ID 
+-   For the selecting page, we can search a keywords and select two products for the poll. Name, picture, permalink? price? ID
 - Store the products in firestore
 - Bring data from firestore in the versus poll. Vote.
 - Button to reset?
@@ -61,8 +73,7 @@ Se debe crear una aplicación de votación realtime.
 -  create the poll board in the index
 -  PROBLEMS TO IMPORT SVG FILES. fix later
 -  problems with styled components, have to create .babelrc, and _document.tsx
--  create the components for the navbar login, logout button.
--
+-  create the components for the navbar login, logout button.    
 
 - create UI for select products
 - search bar? modal?
@@ -70,42 +81,6 @@ Se debe crear una aplicación de votación realtime.
 - connect to the MELI's API
 - display grid
 
+### I MUST COMPLETE THE LOG
 
 
-
-
-
-    This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
--   [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
--   [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
